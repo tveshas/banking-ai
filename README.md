@@ -2,6 +2,11 @@
 
 An advanced AI-powered banking system that automates document processing, risk assessment, and customer segmentation using AWS services and multi-agent architecture.
 
+## 🌐 Live Demo
+
+- **🚀 Live Application**: [http://15.206.211.200/](http://15.206.211.200/)
+- **📹 Demo Video**: [https://youtu.be/JwrBqmt0R6w](https://youtu.be/JwrBqmt0R6w)
+
 ## 🚀 Features
 
 ### 🤖 Multi-Agent Architecture
