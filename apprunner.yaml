@@ -1,0 +1,24 @@
+version: 1.0
+runtime: docker
+build:
+  commands:
+    build:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t banking-ai .
+      - echo Build completed on `date`
+run:
+  runtime-version: latest
+  command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0 --server.headless=true --server.fileWatcherType=none --browser.gatherUsageStats=false
+  network:
+    port: 8501
+    env:
+      - AWS_DEFAULT_REGION=ap-south-1
+      - AWS_REGION=ap-south-1
+  instance_configuration:
+    cpu: 1 vCPU
+    memory: 2 GB
+  auto_scaling_configuration:
+    min_size: 1
+    max_size: 10
+    max_concurrency: 100 

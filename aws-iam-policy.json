@@ -1,0 +1,74 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BankingAIBedrockAccess",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream",
+                "bedrock:GetFoundationModel",
+                "bedrock:ListFoundationModels"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "BankingAITextractAccess",
+            "Effect": "Allow",
+            "Action": [
+                "textract:DetectDocumentText",
+                "textract:AnalyzeDocument",
+                "textract:AnalyzeID",
+                "textract:StartDocumentAnalysis",
+                "textract:GetDocumentAnalysis"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "BankingAIS3Access",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::banking-ai-documents/*",
+                "arn:aws:s3:::banking-ai-documents"
+            ]
+        },
+        {
+            "Sid": "BankingAIDynamoDBAccess",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:CreateTable",
+                "dynamodb:DescribeTable",
+                "dynamodb:BatchGetItem",
+                "dynamodb:BatchWriteItem"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:ap-south-1:*:table/banking-ai-*",
+                "arn:aws:dynamodb:ap-south-1:*:table/banking-ai-*/index/*"
+            ]
+        },
+        {
+            "Sid": "BankingAILogging",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": "arn:aws:logs:ap-south-1:*:log-group:/aws/apprunner/banking-ai*"
+        }
+    ]
+} 
